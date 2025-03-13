@@ -1,25 +1,34 @@
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdioh.h>
 
+void ft_putstr(char *s)
+{
+	while (*s)
+	{
+		write(1, s++, 1);
+	}
+}
 char *reverse_string(char *str)
 {
-	char *s;
-	int len;
-	int i;
+	char *start;
+	char *end;
+	char temp;
 
-	len = ft_strlen(str);
-	s = (char *s) malloc((len + 1) sizeof(char));
-	if(!s)
+	if(!str)
 		return (NULL);
-	i = 0;
-	while (s[i])
-		i++;
-	while(i >= len)
+	start = str;
+	end = str;
+	while (*(end + 1) != '\0')
+		end++;
+	while(end > start)
 	{
-		*s=str[i];
-		i--;
+		temp = *start;
+		*start = *end;
+		*end = temp;
+		start++;
+		end--;
 	}
+	return (str);
 }
 int main(int ac, char **av)
 {
