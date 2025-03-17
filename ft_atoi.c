@@ -1,9 +1,39 @@
-//#include <stdio.h>
+#include <stdio.h>
 
 int ft_space(const char *s)
 {
-    return (*s == '\t' || *s == ' ' || *s== '\v');
+    return (*s == ' ' || (*s >= 9 && *s<= 13));
 }
+int ft_digit(const char *s)
+{
+    return (*s >= '0' && *s <= '9');
+}
+int	ft_atoi(const char *nptr)
+{
+	int						sign;
+	unsigned long long int	nb;
+
+	sign = 1;
+	nb = 0;
+	while (*nptr == ' ' || ft_space(nptr))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		sign = 44 - *nptr;
+		nptr++;
+	}
+	while (*nptr && ft_digit(nptr))
+	{
+		nb = nb * 10 + (*nptr - '0');
+		nptr++;
+		if (nb > __LONG_MAX__ && sign == 1)
+			return (-1);
+		else if (nb > __LONG_MAX__ && sign == -1)
+			return (0);
+	}
+	return (nb * sign);
+}
+/*
 int ft_atoi(const char *s)
 {
     int num;
@@ -25,11 +55,19 @@ int ft_atoi(const char *s)
     }
     return num*sign;
 }
-/*
-int main()
-{
-    printf("%d", ft_atoi("-42"));
-    return 0;
-}
 */
+#include <stdio.h>
+#include <stdlib.h>
 
+int   main(void)
+{
+
+        char str[] = "-2173218300712381238132131231232132137812";
+        int var;
+		int var1;
+
+        var = ft_atoi(str);
+		var1 = atoi(str);
+        printf("real%d\n",var1);
+        printf("fake%d\n",var);
+}
