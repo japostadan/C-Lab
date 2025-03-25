@@ -10,10 +10,11 @@ int ft_len(char *s)
         i++;
     return i;
 }
+
 char *ft_strdup(char *src)
 {
     char *s;
-    int len = ft_len(s);
+    int len = ft_len(src);
     int i = 0;
     s = (char *)malloc(sizeof(char) * len + 1);
     if (!s)
