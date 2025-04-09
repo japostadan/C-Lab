@@ -45,6 +45,5 @@ int		main(int argc, char **argv)
 	if (argc == 3)
 		inter(argv[1], argv[2]);
 	write(1, "\n", 1);
-	printf("teres");
 	return (0);
 }
