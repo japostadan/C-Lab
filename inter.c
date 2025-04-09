@@ -25,13 +25,9 @@
 #include <unistd.h>
 
 void solve(char *str1, char *str2) {
-	int buff[128];
+	int buff[128] = {0};
 	int	i;
 	char c;
-
-	i = 0;
-	while (i < 128)
-		buff[i++] = 0;
 
 	i = 0;
 	while (str2[i]) {
