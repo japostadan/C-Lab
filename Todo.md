@@ -1,5 +1,6 @@
 ## List Of To Do Exercise
 
+Words Printer
 Reverse String
 Prime Number Generator
 Matrix Multiplication
@@ -8,7 +9,7 @@ Binary Search Tree
 File Handling: Word Counter
 Custom Memory Allocator
 Bit Manipulation: Bit Counter
-Advance Data Structure: Trie Implementation
+Advance Data Structure: Tree Implementation
 Prime Number
 Factorial
 Fibonacci Series
@@ -55,3 +56,4 @@ Matrix Multiplication
 Bubble Sort
 Insertion Sort
 Selection Sort
+
