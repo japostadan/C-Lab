@@ -15,7 +15,7 @@ int	ft_atoi(const char *nptr)
 
 	sign = 1;
 	nb = 0;
-	while (*nptr == ' ' || ft_space(nptr))
+	while (ft_space(nptr))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')
 	{
@@ -62,7 +62,7 @@ int ft_atoi(const char *s)
 int   main(void)
 {
 
-        char str[] = "-2173218300712381238132131231232132137812";
+        char str[] = "2173218300712381238132131231232132137812";
         int var;
 		int var1;
 
