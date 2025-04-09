@@ -12,40 +12,40 @@ int	is_space(char c)
 	return (0);
 }
 
-void	ft_print_first_word(char *str, int begin_space)
+void	ft_print_first_word(char *str, int start)
 {
-	while (str[begin_space] != '\0' && !is_space(str[begin_space]))
+	while (str[start] != '\0' && !is_space(str[start]))
 	{
-		ft_putchar(str[begin_space]);
-		begin_space++;
+		ft_putchar(str[start]);
+		start++;
 	}
 }
 
 void	rostring(char *str)
 {
-	int	idx;
-	int	begin_space;
+	int	i;
+	int	start;
 
-	begin_space = 0;
-	while (str[begin_space] != '\0' && is_space(str[begin_space]))
-		begin_space++;
-	idx = begin_space;
-	while (str[idx] != '\0' && !is_space(str[idx]))
-		idx++;
-	while (str[idx] != '\0')
+	start = 0;
+	while (str[start] != '\0' && is_space(str[start]))
+		start++;
+	i = start;
+	while (str[i] != '\0' && !is_space(str[i]))
+		i++;
+	while (str[i] != '\0')
 	{
-		if (str[idx] != '\0' && !is_space(str[idx]) && is_space(str[idx - 1]))
+		if (str[i] != '\0' && !is_space(str[i]) && is_space(str[i - 1]))
 		{
-			while (str[idx] != '\0' && !is_space(str[idx]))
+			while (str[i] != '\0' && !is_space(str[i]))
 			{
-				ft_putchar(str[idx]);
-				idx++;
+				ft_putchar(str[i]);
+				i++;
 			}
 			ft_putchar(' ');
 		}
-		idx++;
+		i++;
 	}
-	ft_print_first_word(str, begin_space);
+	ft_print_first_word(str, start);
 }
 
 int	main(int argc, char **argv)
