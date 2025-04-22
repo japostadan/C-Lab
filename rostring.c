@@ -7,9 +7,7 @@ void	ft_putchar(char c)
 
 int	is_space(char c)
 {
-	if ((c == ' ') || (c == '\t'))
-		return (1);
-	return (0);
+	return ((c == ' ') || ((c >= 9 && c <= 13))
 }
 
 void	ft_print_first_word(char *str, int start)
