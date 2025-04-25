@@ -51,6 +51,7 @@ int main()
 {
 	unsigned char res = 0;
 
+    print_bits((unsigned char) 2);
 	res = reverse_bits((unsigned char) 2 );
 	print_bits(res);
 }

@@ -62,7 +62,7 @@ int ft_atoi(const char *s)
 int   main(void)
 {
 
-        char str[] = "2173218300712381238132131231232132137812";
+        char str[] = "-7812";
         int var;
 		int var1;
 

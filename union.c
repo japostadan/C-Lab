@@ -29,40 +29,36 @@
 
 #include <unistd.h>
 
+void ft_union(char *s, char *s2)
+{
+    int i = 0;
+    int buf[256] = {0};
+
+    while(s2[i])
+        buf[(int)s2[i++]] = 1;
+    i = 0;
+    while(s[i])
+        buf[(int)s[i++]] = 1;
+    i = 0;
+    while(s[i])
+    {
+        if(buf[s[i]] == 1)
+           write(1, &s[i], 1);
+        buf[(int)s[i]] = 0;
+        i++;
+    }
+    i = 0;
+    while(s2[i])
+    {
+        if(buf[s2[i]] == 1)
+           write(1, &s2[i], 1);
+        buf[(int)s2[i]] = 0;
+        i++;
+    }
+}
 int main(int ac, char **av)
 {
-	if (ac == 3)
-	{
-
-		int tab[256] = {0};
-		int i = 0;
-
-
-		while(av[2][i])
-			tab[(int)av[2][i++]] = 1;
-		i = 0;
-		while(av[1][i])
-			tab[(int)av[1][i++]] = 1;
-		i = 0;
-		while(av[1][i])
-		{
-			if (tab[(int)av[1][i]])
-			{
-				write(1, &av[1][i], 1);
-				tab[(int)av[1][i]] = 0;
-			}
-			i++;
-		}
-		i = 0;
-		while(av[2][i])
-		{
-			if (tab[(int)av[2][i]])
-			{
-				write(1, &av[2][i], 1);
-				tab[(int)av[2][i]] = 0;
-			}
-			i++;
-		}
-	}
-	write(1, "\n" , 1);
+    if(ac == 3)
+        ft_union(av[1], av[2]);
+    write(1,"\n", 1);
 }
