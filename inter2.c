@@ -1,5 +1,6 @@
 #include <unistd.h>
 
+
 int comp (char *str, char c, int index)
 {
 	int i;

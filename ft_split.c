@@ -12,6 +12,7 @@
 /*Your function must be declared as follows:                                      */
 /*                                                                                */
 /*char    **ft_split(char *str);                                                  */
+/*--------------------------------------------------------------------------------*/
 
 
 #include <stdlib.h>
@@ -23,6 +24,7 @@ int word_len(char *s)
         ++i;
     return i;
 }
+
 char *dup(char *s)
 {
     int i = 0;
@@ -34,6 +36,7 @@ char *dup(char *s)
         word[i] = s[i];
         ++i;
     }
+	word[i] = 0;
     return word;
 }
 
@@ -52,6 +55,7 @@ void fill(char **arr, char *s)
             ++s;
     }
 }
+
 int wd_len(char *s)
 {
     int i = 0;
@@ -85,9 +89,10 @@ int main()
 {
     char **s;
 
-    s = ft_split("this is a test");
+    s = ft_split("          this      is a test");
     printf("%s\n", s[0]);
     printf("%s\n", s[1]);
     printf("%s\n", s[2]);
     printf("%s\n", s[3]);
+	free(s);
 }
