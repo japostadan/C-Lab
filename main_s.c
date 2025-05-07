@@ -1,21 +1,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+
 int sspace(char s)
 {
 	return (s == ' ' || (s >= 9 && s <= 13));
 }
-
-char *ft_strndup(char *src,int len)
-{
-	char *dest = malloc(len + 1);
-	for(int i = 0;i < len; i++)
-		dest[i] = src[i];
-	dest[len] = '\0';
-	return dest;
-}
-
-int arr_len(char *s)
+int res_len(char *s)
 {
 	int i = 0;
 	while(*s)
@@ -30,33 +21,42 @@ int arr_len(char *s)
 	return i;
 }
 
+char *ft_strndup(char *s,int n)
+{
+	char *d = malloc(n + 1);
+	for(int i=0; i < n; i++)
+		d[i] = s[i];
+	d[n] = '\0';
+	return d;
+}
 char **split(char *s)
 {
-	char **res=NULL;
+	char **res = NULL;
 	char *start;
-	int len = arr_len(s);
 	int i = 0;
+	int len = res_len(s);
 
 	res = malloc((len + 1) * sizeof(char *));
+	if(!res) return NULL;
 	while(*s)
 	{
-		while(*s && sspace(*s))s++;
+		while(*s && sspace(*s)) s++;
+		start = s;
 		if(*s)
 		{
-			start = s;
 			while(*s && !sspace(*s)) s++;
-			int word_len  = s - start;
-			res[i++] = ft_strndup(start, word_len);
+			int wl= s - start;
+			res[i++] = ft_strndup(start, wl);
 		}
 	}
-	res[len] = NULL;
+	res[len] = '\0';
 	return res;
 }
 
 int main()
 {
-	char **s = split("      one  two   three");
-	for(int i = 0;s[i];i++)
+	char **s= split("      one two  	 	three");
+	for(int i = 0; s[i];i++)
 	{
 		printf("word[%d] -> %s\n",i,s[i]);
 		free(s[i]);
