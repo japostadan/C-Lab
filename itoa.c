@@ -27,9 +27,9 @@ char *ft_itoa(int nb)
 	res[len] = '\0';
 	if(nb == 0)
 		res[0] = '0';
-	while(nb!=0)
+	while(len--)
 	{
-		res[--len] = (nb % 10) + '0';
+		res[len] = (nb % 10) + '0';
 		nb/=10;
 	}
 	return res;
@@ -38,5 +38,5 @@ char *ft_itoa(int nb)
 int main()
 {
 	printf("%s\n", ft_itoa(INT_MAX));
-	printf("%s\n", ft_itoa(-0));
+	printf("%s\n", ft_itoa(INT_MIN));
 }

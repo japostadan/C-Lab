@@ -49,7 +49,7 @@ char **split(char *s)
 			res[i++] = ft_strndup(start, wl);
 		}
 	}
-	res[len] = '\0';
+	res[len] = NULL;
 	return res;
 }
 
