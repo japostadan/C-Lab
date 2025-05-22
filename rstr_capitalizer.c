@@ -4,10 +4,6 @@ int sspace(char s)
 {
 	return (s == ' ' || (s >= 9 && s <= 13));
 }
-int tolow(char s)
-{
-	return (s >= 'A' && s <= 'Z');
-}
 void rstr(char *s)
 {
 	while(*s)
