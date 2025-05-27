@@ -38,5 +38,6 @@ char *ft_itoa(int nb)
 int main()
 {
 	printf("%s\n", ft_itoa(INT_MAX));
+	printf("%s\n", ft_itoa(-321));
 	printf("%s\n", ft_itoa(INT_MIN));
 }
